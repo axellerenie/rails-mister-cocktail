@@ -1,0 +1,17 @@
+<h2><%= @cocktail.name  %></h2>
+
+<h3><i class="fa fa-lemon-o" aria-hidden="true"></i></h3>
+<ul>
+  <% @cocktail.ingredients.each do |i| %>
+  <li><%= i.name %></li>
+  <% end %>
+</ul>
+
+<h3><i class="fa fa-glass" aria-hidden="true"></i></h3>
+<ul>
+  <% @cocktail.doses.each do |d| %>
+  <li><%= d.description %></li>
+  <% end %>
+</ul>
+
+
