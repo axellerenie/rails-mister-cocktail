@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'figaro'
+gem 'cloudinary'
 
 ruby '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
