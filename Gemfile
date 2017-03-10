@@ -6,7 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 gem 'figaro'
-gem 'cloudinary'
+
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
 
 ruby '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

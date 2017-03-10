@@ -2,21 +2,28 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1><%= @cocktail.name %></h1>
-      <p>Ajouter les ingrédients du <%= @cocktail.name %></p>
+
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo.path  %>');">
+
+      </div>
+
+      <h4 class="padded-light">Here are the doses</h4>
+       <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.description %> - <%= dose.ingredient.name %></li>
+      <% end %>
+
+      <h4 class="padded-light">Add crazy doses to <%= @cocktail.name %></h4>
 
       <%= simple_form_for([@cocktail, @dose]) do |f| %>
         <%= f.error_notification %>
         <%= f.input :description %>
         <%= f.association :ingredient %>
-        <%= f.submit 'Ajouter !' %>
+        <%= f.submit 'Add' %>
       <% end %>
 
-     <%= link_to 'Back', cocktails_path %>
+     <%= link_to 'Back', cocktails_path, input_html: {class: "padded-light"}  %>
 
-     <p>Voici les doses !</p>
-     <% @cocktail.doses.each do |dose| %>
-      <li><%= dose.description %> - <%= dose.ingredient.name %></li>
-     <% end %>
+
 
     </div>
   </div>

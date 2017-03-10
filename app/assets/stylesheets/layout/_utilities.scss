@@ -10,6 +10,15 @@
   padding-bottom: 5em;
 }
 
+.padded-light {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.margin-light {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -39,14 +48,13 @@ h1 {
   font-weight: light;
 }
 
-h2 {
+h2, h3, h4, h5, h6 {
   color: #283C63;
   font-weight: lighter;
-  font-size: 30px;
 }
 
-h3, h4, h5, h6 {
-  color: #283C63;
+h2 {
+  font-size: 30px;
 }
 
 p, li {
@@ -55,4 +63,8 @@ p, li {
 
 i {
   color: #F85F73;
+}
+
+a {
+  decoration: none;
 }
