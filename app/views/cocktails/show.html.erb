@@ -1,17 +1,24 @@
-<h2><%= @cocktail.name  %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @cocktail.name %></h1>
+      <p>Ajouter les ingrédients du <%= @cocktail.name %></p>
 
-<h3><i class="fa fa-lemon-o" aria-hidden="true"></i></h3>
-<ul>
-  <% @cocktail.ingredients.each do |i| %>
-  <li><%= i.name %></li>
-  <% end %>
-</ul>
+      <%= simple_form_for([@cocktail, @dose]) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :description %>
+        <%= f.association :ingredient %>
+        <%= f.submit 'Ajouter !' %>
+      <% end %>
 
-<h3><i class="fa fa-glass" aria-hidden="true"></i></h3>
-<ul>
-  <% @cocktail.doses.each do |d| %>
-  <li><%= d.description %></li>
-  <% end %>
-</ul>
+     <%= link_to 'Back', cocktails_path %>
 
+     <p>Voici les doses !</p>
+     <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.description %> - <%= dose.ingredient.name %></li>
+     <% end %>
+
+    </div>
+  </div>
+</div>
 

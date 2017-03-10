@@ -1,23 +1,16 @@
-<h1><i class="fa fa-eye" aria-hidden="true"></i></h1>
-<% @cocktails.each do |cocktail| %>
+<h1 class="text-center">Your cocktail list</h1>
+<h2 class="text-center">Alcohol is a perfect solvent. <br>It dissolves marriages, families and careers.</h2>
 
-  <div class="container">
-    <div class="row">
+<div class="text-center padded">
+  <%= link_to "Create a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
       <div class="col-xs-12 col-sm-4">
-
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("http://placehold.it/30x30");">
-
-          <div class="card-category"><h2><%= cocktail.name %></h2></div>
-          <div class="card-description">
-            <% cocktail.ingredients.each do |ingredient| %>
-            <p><%= ingredient.name %></p>
-            <% end %>
-          </div>
-
-        </div>
-
-
+        <%= render 'cocktail_card', cocktail: c %>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
